@@ -1,16 +1,54 @@
-# task4_app
 
-A new Flutter project.
+# Task 4 - Robot Arm Control Panel
 
-## Getting Started
+## 👩‍💻 اسم الطالبة:
+**Rand Alkhlifh**
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📌 وصف المهمة:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+بناء نظام تحكم بذراع آلي يتكوّن من:
+- تطبيق Flutter للتحكم في الذراع (4 محركات)
+- واجهة تحتوي على أزرار للتحكم (Reset, Save, Run)
+- تخزين الوضعيات في قاعدة بيانات MySQL
+- استخدام ملفات PHP كوسيط بين التطبيق وقاعدة البيانات
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ الأدوات المستخدمة:
+- **Flutter** لواجهة المستخدم
+- **PHP** لبرمجة الواجهة الخلفية (API)
+- **MySQL** لقاعدة البيانات
+- **XAMPP** لتشغيل Apache + MySQL محليًا
+- **GitHub** لحفظ المشروع ومشاركته
+
+---
+
+## 📱 واجهة Flutter:
+
+- **4 منزلقات (Sliders)** لتمثيل كل محرك (Motor 1 إلى Motor 4)
+- **3 أزرار تحكم**:
+  - Reset: لإعادة الوضع الابتدائي
+  - Save Pose: لحفظ الوضعية الحالية
+  - Run: لتشغيل الوضعية
+
+---
+
+## 🗃️ قاعدة البيانات:
+
+### الجداول المستخدمة:
+
+```sql
+CREATE TABLE poses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    motor1 INT,
+    motor2 INT,
+    motor3 INT,
+    motor4 INT
+);
+
+CREATE TABLE status (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    is_running INT
+);
